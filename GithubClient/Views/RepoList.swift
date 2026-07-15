@@ -1,3 +1,4 @@
+
 //
 //  RepoList.swift
 //  GithubClient
@@ -5,20 +6,21 @@
 //  Created by Usuario invitado on 10/7/26.
 //
 
-
 import SwiftUI
 
 struct RepoList: View {
-    var body: some View {
+    private var repoList = Repository.sampleData
+    var body: some View{
         NavigationStack{
-            VStack{
-                Text("Perfil de usuario")
+            Group{
+                List(repoList) { repo in
+                    RepoItem(repository: repo)
+                }
             }
-            .navigationTitle("Repositorios")
+            .navigationTitle("Lista de Repositorios")
         }
     }
 }
-
-#Preview{
+#Preview {
     RepoList()
 }
